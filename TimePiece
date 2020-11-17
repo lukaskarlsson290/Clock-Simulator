@@ -1,0 +1,24 @@
+/**
+ * The interface that we implement in our clock class, gives three methods to help make our clocks run
+ * @author Lukas Karlsson
+ *CS221 - Homework 4 
+ */
+public interface TimePiece {
+
+	//This method resets the TimePiece to its starting time
+	public static void reset()
+	{		
+	}
+	
+	
+	//The tick method simulates one second of time passing
+	public static void tick()
+	{	
+	}
+	
+	
+	//The display method displays the current time
+	public static void display()
+	{	
+	}
+}
