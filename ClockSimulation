@@ -1,0 +1,88 @@
+import java.sql.Time;
+
+/**
+ * This is the driving class for Homework4. Here is where our simulation is run as well as our Bag object created
+ * 
+ * @author Lukas Karlsson
+ * 
+ * CS221 Fall 2020
+ */
+import java.util.Iterator;
+
+public class ClockSimulation {
+
+	//Variables for time
+	final static long DAY = 86400;
+	final static long WEEK = 604800;
+	final static long MONTH = 2592000;
+	final static long YEAR = 31536000;
+
+	private static Bag<Clock> bag = new Bag<Clock>(); //Create the data structure "bag"
+	
+
+
+	/**
+	 * Displays the time for the clock after a given period of time
+	 * @param time
+	 */
+	public static void printDisplay(long time)
+	{
+		Iterator<Clock> bagIterator = bag.iterator();
+		
+		while(bagIterator.hasNext())
+		{
+			Clock clock = bagIterator.next();
+			
+			if(time == 0)
+			{
+				clock.display();
+			
+			}
+			else 
+			{
+				clock.reset();
+				for(long i = 0; i < time; i++)
+				{
+					clock.tick();
+				}
+				clock.display();
+		
+			}
+		
+		}
+		
+		}
+
+	
+	
+	public static void main(String[] args) {
+
+		//Add all the clocks to the bag
+		bag.add(new Sundial());
+		bag.add(new WristWatch());
+		bag.add(new CuckooClock());
+		bag.add(new GrandfatherClock());
+		bag.add(new AtomicClock());
+		
+		System.out.println("Times before start:");
+		printDisplay(0);
+			
+		System.out.println("\nTimes after one day");
+		printDisplay(DAY);
+		
+		System.out.println("\nTimes after one week");
+		printDisplay(WEEK);
+		
+		System.out.println("\nTimes are one month");
+		printDisplay(MONTH);
+		
+		System.out.println("\nTimes are one year");
+		printDisplay(YEAR);
+			
+			
+			
+		}
+	
+
+	}
+
