@@ -1,0 +1,76 @@
+
+/**
+ * The Clock class contains the methods used to carry out the functions of our various clocks  
+ * 
+ * @author Lukas Karlsson
+ *
+ */
+public abstract class Clock implements TimePiece {
+	
+	//Instance variables
+	protected Time time;
+	private clockType type;
+	private clockType copyType;
+	private double drift;
+	
+	//Enum set up for the different clock types we have
+	public enum clockType {
+		natural, mechanical, digital, quantum;
+	}
+
+	
+	/**
+	 * The clock method used to declare our clock and set the default time
+	 * @param type - declares the type from our enum clockType
+	 * @param drift - takes in the amount of drift as a double
+	 */
+	 public Clock(clockType type, double drift)
+	 {
+		 this.type = type;
+		 this.drift = drift;
+		 time = new Time(0,0,0,drift);
+	
+		
+	 }
+	 
+	/**
+	 * The getter method for getting the clock type
+	 * @return returns a copy of the clock type
+	 */
+	 public clockType getClockType()
+	 {
+		 copyType = type;
+		 return copyType;
+	 }
+	 
+	/**
+	 * The setter method for the clock type
+	 * @param type
+	 */
+	 public void setClockType(clockType type)
+	 {
+		 this.type = type;
+	 }
+	
+	 /**
+	  * Reset method to set our clock to midnight
+	  */
+	 public void reset()
+	 {
+		 time.resetToStartTime();
+	 }
+	 
+	 /**
+	  * Increments our time by one second
+	  */
+	 public void tick()
+	 {
+		time.incrementTime();
+	 }
+	 
+	 /**
+	  * Abstract method to display our clocks
+	  */
+	 public abstract void display();
+	 
+}
