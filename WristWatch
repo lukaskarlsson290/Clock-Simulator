@@ -1,0 +1,25 @@
+import java.text.DecimalFormat;
+/**
+ * The WristWatch class represents our wrist watch for our simulation
+ * @author Lukas Karlsson
+ * CS221 Fall 2020
+ */
+public class WristWatch extends Clock{
+
+	//Instance variables
+	private static String description = "wrist watch";
+	private static DecimalFormat df = new DecimalFormat("0.00");
+
+	/**
+	 * Sets the clock to its type and the given drift
+	 */
+	public WristWatch() {
+		super(clockType.digital, 0.000034722);
+	}
+
+	@Override
+	public void display() {
+		System.out.println(clockType.digital + ", " + description + ", " + "time " + "[ " + time.formattedTime() + "]," + " total drift = " + df.format(time.getTotalDrift()));
+
+	}
+}
