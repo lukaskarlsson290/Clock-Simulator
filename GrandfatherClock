@@ -1,0 +1,28 @@
+import java.text.DecimalFormat;
+
+/**
+ * The GrandfatherClock class represents our grandfather clock for our simulation
+ * @author Lukas Karlsson
+ * CS221 Fall 2020
+ */
+
+public class GrandfatherClock extends Clock {
+	
+	//Instance variables
+	private static String description = "grandfather clock";
+	private static DecimalFormat df = new DecimalFormat("0.00");
+
+	/**
+	 * Sets the clock to its type and the given drift
+	 */
+	public GrandfatherClock() {
+		super(clockType.mechanical, 0.000347222);
+	}
+
+	@Override
+	public void display() {
+		// TODO Auto-generated method stub
+		System.out.println(clockType.mechanical + ", " + description + ", " + "time " + "[ " + time.formattedTime() + "]," + " total drift = " + df.format(time.getTotalDrift()));
+	}
+
+}
