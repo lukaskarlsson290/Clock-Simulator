@@ -1,0 +1,29 @@
+import java.text.DecimalFormat;
+
+/**
+ * The CuckooClock class represents our cuckoo clock for our simulation
+ * @author Lukas Karlsson
+ * CS221 Fall 2020
+ */
+
+public class CuckooClock extends Clock {
+
+	//Instance variables
+	private String description = "cuckoo clock";
+	private static DecimalFormat df = new DecimalFormat("0.00");
+
+	/**
+	 * Sets the clock to its type and the given drift
+	 */
+	public CuckooClock() {
+
+		super(clockType.digital, 0.000694444);
+	}
+
+	@Override
+	public void display() {
+
+		System.out.println(clockType.mechanical + ", " + description + ", " + "time " + "[ " + time.formattedTime() + "]," + " total drift = " + df.format(time.getTotalDrift()));
+	}
+
+}
