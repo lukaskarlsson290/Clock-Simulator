@@ -1,0 +1,27 @@
+import java.text.DecimalFormat;
+
+/**
+ * The Sundial class represents our sundial for our simulation
+ * @author Lukas Karlsson
+ * CS221 Fall 2020
+ */
+public class Sundial extends Clock {
+	
+	//Instance variables
+	private static String description = "sun dial";
+	private static DecimalFormat df = new DecimalFormat("0.00");
+
+	/**
+	 * Sets the clock to its type and the given drift
+	 */
+	public Sundial() {
+		super(clockType.natural, 0.00);
+	}
+
+	@Override
+	public void display() {
+		System.out.println(clockType.natural + ", " + description + ", " + "time " + "[ " + time.formattedTime() + "]," + " total drift = " + df.format(time.getTotalDrift()));
+		
+	}
+
+}
